@@ -1,8 +1,7 @@
 package api.vtwspring.member.model.entity;
 
 import api.vtwspring.common.entity.BaseEntity;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -10,11 +9,13 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @Table(name = "MEMBER")
+@Builder
+@AllArgsConstructor
 public class Member extends BaseEntity {
 
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "member_seq")
     private Long memberSeq;
 
@@ -33,5 +34,18 @@ public class Member extends BaseEntity {
         this.delYn = delYn;
     }
 
-
+    @Override
+    public String toString() {
+        return "Member{" +
+                "memberSeq=" + memberSeq +
+                ", pwd='" + pwd + '\'' +
+                ", name='" + name + '\'' +
+                ", loginCount=" + loginCount +
+                ", socialDivision='" + socialDivision + '\'' +
+                ", delYn='" + delYn + '\'' +
+                ", dormantAccount='" + dormantAccount + '\'' +
+                ", profile='" + profile + '\'' +
+                ", memberId='" + memberId + '\'' +
+                '}';
+    }
 }
