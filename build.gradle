@@ -65,7 +65,7 @@ tasks.named('asciidoctor') {
     dependsOn test
 }
 
-tasks.named('copyPrivate') {
+tasks {
     copy {
         from './information'
         include "*.yml"
